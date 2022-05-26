@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kube-job-failure-poc-job
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+      - name: kube-job-failure-poc-job
+        image: nginx
+        command: ["/bin/bash","-c","exit 1"]
+      restartPolicy: Never
+  backoffLimit: 2
