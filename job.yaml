@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: kube-job-failure-poc-job
-        image: nginx
+        image: nginx:perl
         command: ["sleep", "10m"]
       restartPolicy: Never
   backoffLimit: 2
