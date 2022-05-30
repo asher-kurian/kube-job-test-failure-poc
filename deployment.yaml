@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kube-job-failure-poc-deploy
+  name: presync-job-failure-poc-deploy
 spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: nginx
     spec:
       containers:
-      - name: kube-job-failure-poc-deploy
+      - name: presync-job-failure-poc-deploy
         image: nginx:perl
         ports:
         - containerPort: 80
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kube-job-failure-poc-service
+  name: presync-job-failure-poc-service
 spec:
   selector:
     app: nginx
