@@ -10,6 +10,6 @@ spec:
       containers:
       - name: presync-job-failure-poc-job
         image: nginx:perl
-        command: ["sleep", "12m"]
+        command: ["sleep", "12m;", "exit", "1"]
       restartPolicy: Never
   backoffLimit: 2
