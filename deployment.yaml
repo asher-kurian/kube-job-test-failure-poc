@@ -6,15 +6,15 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: nginx
     spec:
       containers:
-      - name: presync-job-failure-poc-deploy
-        image: nginx
+      - name: presync-job-failure-poc-deploy-new
+        image: nginx:perl
         ports:
         - containerPort: 80
 ---
